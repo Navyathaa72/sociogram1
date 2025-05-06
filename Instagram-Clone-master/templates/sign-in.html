@@ -1,0 +1,144 @@
+<!-- {% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://kit.fontawesome.com/fc1e235b2e.js"></script>
+  <link rel="stylesheet" href="{% static 'assets2/style.css' %}">
+  <title>Instagram | Login </title>
+</head>
+
+<body>
+
+  <div id="wrapper">
+    <div class="container">
+      <div class="phone-app-demo"></div>
+      <div class="form-data">
+        <form action="" method="POST">{% csrf_token %}
+          <div class="logo">
+            <img src="{% static 'assets2/images/logo.png' %}" alt="logo">
+          </div>
+          <!-- <input type="text" placeholder="Phone number, username, or email"> -->
+          <!-- <input type="password" placeholder="Password"> -->
+          <!-- {{form}}
+          <button class="form-btn" type="submit">Log in</button>
+          <!-- <a href="index.html" class="form-btn" type="submit">Log in</a> -->
+          <!-- <span class="has-separator">Or</span> -->
+          <!-- <a class="password-reset" href="#">Forgot password?</a>
+        </form>
+        <div class="sign-up">
+          Don't have an account? <a href="{% url 'sign-up' %}">Sign up</a>
+        </div>
+      </div>
+    </div>
+</body>
+
+</html> --> 
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Instagram | Sign In</title>
+  <link rel="stylesheet" href="{% static 'assets2/style.css' %}">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #fafafa;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      background: #fff;
+      border: 1px solid #dbdbdb;
+      border-radius: 8px;
+      padding: 40px;
+      width: 350px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .logo img {
+      width: 175px;
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 12px;
+      border: 1px solid #dbdbdb;
+      border-radius: 4px;
+      background: #fafafa;
+    }
+
+    .form-btn {
+      width: 100%;
+      padding: 10px;
+      background-color: #0095f6;
+      border: none;
+      border-radius: 4px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .form-btn:hover {
+      background-color: #007dc1;
+    }
+
+    .password-reset {
+      display: block;
+      margin-top: 15px;
+      color: #00376b;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .sign-up-inline {
+      margin-top: 20px;
+      font-size: 14px;
+    }
+
+    .sign-up-inline a {
+      color: #007dc1;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <form action="" method="POST">
+      {% csrf_token %}
+
+      <div class="logo">
+        <img src="{% static 'assets2/images/logo.png' %}" alt="logo">
+      </div>
+
+      {{ form }}
+
+      <button class="form-btn" type="submit">Log In</button>
+      <a class="password-reset" href="{% url 'forgot-password' %}">Forgot password?</a>
+
+      <p class="sign-up-inline">
+        Don't have an account? <a href="{% url 'sign-up' %}">Sign up</a>
+      </p>
+    </form>
+  </div>
+
+</body>
+</html>

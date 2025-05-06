@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Logged Out</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f2f5;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      text-align: center;
+      background-color: #fff;
+      padding: 40px 60px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .signin-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #3897f0;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .signin-button:hover {
+      background-color: #2f82d9;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>You have successfully logged out.</h2>
+    <a href="{% url 'sign-in' %}" class="signin-button">Sign in again</a>
+  </div>
+</body>
+</html>

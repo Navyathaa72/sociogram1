@@ -1,0 +1,294 @@
+<!-- {% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://kit.fontawesome.com/fc1e235b2e.js"></script>
+  <link rel="stylesheet" href="{% static 'assets2/style.css' %}">
+  <title>Instagram | Register</title>
+</head>
+
+<body>
+
+  <div id="wrapper">
+    <div class="container">
+      <div class="phone-app-demo"></div>
+      <div class="form-data">
+        <form action="" method="POST">
+          {% csrf_token %}
+          <div class="logo">
+            <img src="{% static 'assets2/images/logo.png' %}" alt="logo">
+          </div>
+          <!-- <input type="text" placeholder="Phone number, username, or email"> -->
+          <!-- <input type="password" placeholder="Password"> -->
+          <!-- {{form.username}}
+          {{form.email}}
+          {{form.password1}}
+          {{form.password2}}
+          <button class="form-btn" type="submit">Log in</button>
+
+
+          <!-- <a href="index.html" class="form-btn" type="submit">Log in</a> -->
+          <!-- <span class="has-separator">Or</span>
+          <a class="facebook-login" href="#">
+            <i class="fab fa-facebook-square"></i> Log in with Facebook
+          </a>
+          <a class="password-reset" href="#">Forgot password?</a>
+        </form>
+        <div class="sign-up">
+          Don't have an account? <a href="{% url 'sign-in' %}">Sign In</a>
+        </div>
+        <div class="get-the-app">
+          <span>Get the app.</span>
+          <div class="badges">
+            <img src="{% static 'assets2/images/app-store.png' %}" alt="app-store badge">
+            <img src="{% static 'assets2/images/google-play.png' %}" alt="google-play badge">
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+</body>
+
+</html>   -->
+
+<!-- {% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://kit.fontawesome.com/fc1e235b2e.js"></script>
+  <link rel="stylesheet" href="{% static 'assets2/style.css' %}">
+  <title>Instagram | Register</title>
+</head>
+
+<body>
+
+  <div id="wrapper">
+    <div class="container">
+      <div class="phone-app-demo"></div>
+      <div class="form-data">
+        <form action="" method="POST">
+          {% csrf_token %}
+          <div class="logo">
+            <img src="{% static 'assets2/images/logo.png' %}" alt="logo">
+          </div>
+
+          <!-- Username field -->
+          <!-- <div>
+            {{ form.username }}
+            {% if form.username.errors %}
+              <ul>
+                {% for error in form.username.errors %}
+                  <li>{{ error }}</li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </div> -->
+
+          <!-- Email field -->
+          <!-- <div>
+            {{ form.email }}
+            {% if form.email.errors %}
+              <ul>
+                {% for error in form.email.errors %}
+                  <li>{{ error }}</li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </div> -->
+
+          <!-- Password fields -->
+          <!-- <div>
+            {{ form.password1 }}
+            {% if form.password1.errors %}
+              <ul>
+                {% for error in form.password1.errors %}
+                  <li>{{ error }}</li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </div>
+          <div>
+            {{ form.password2 }}
+            {% if form.password2.errors %}
+              <ul>
+                {% for error in form.password2.errors %}
+                  <li>{{ error }}</li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </div>
+
+          <button class="form-btn" type="submit">Sign Up</button>
+        </form>
+
+        <div class="sign-up">
+          Already have an account? <a href="{% url 'sign-in' %}">Sign In</a>
+        </div>
+
+        
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html> --> 
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Instagram | Register</title>
+  <link rel="stylesheet" href="{% static 'assets2/style.css' %}">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #fafafa;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .form-container {
+      background: #fff;
+      padding: 40px;
+      border: 1px solid #dbdbdb;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      width: 350px;
+      text-align: center;
+    }
+
+    .form-container img {
+      width: 175px;
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 12px;
+      border: 1px solid #dbdbdb;
+      border-radius: 4px;
+      background: #fafafa;
+    }
+
+    .form-btn {
+      width: 100%;
+      padding: 10px;
+      background-color: #0095f6;
+      border: none;
+      border-radius: 4px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .form-btn:hover {
+      background-color: #007dc1;
+    }
+
+    .sign-up {
+      margin-top: 20px;
+      font-size: 14px;
+    }
+
+    .sign-up a {
+      color: #0095f6;
+      text-decoration: none;
+    }
+
+    ul {
+      color: red;
+      text-align: left;
+      margin-bottom: 10px;
+      padding-left: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <form method="POST">
+      {% csrf_token %}
+      <div class="logo">
+        <img src="{% static 'assets2/images/logo.png' %}" alt="logo">
+      </div>
+
+      <!-- Username field -->
+      <div>
+        {{ form.username }}
+        {% if form.username.errors %}
+          <ul>
+            {% for error in form.username.errors %}
+              <li>{{ error }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </div>
+
+      <!-- Email field -->
+      <div>
+        {{ form.email }}
+        {% if form.email.errors %}
+          <ul>
+            {% for error in form.email.errors %}
+              <li>{{ error }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </div>
+
+      <!-- Password fields -->
+      <div>
+        {{ form.password1 }}
+        {% if form.password1.errors %}
+          <ul>
+            {% for error in form.password1.errors %}
+              <li>{{ error }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </div>
+
+      <div>
+        {{ form.password2 }}
+        {% if form.password2.errors %}
+          <ul>
+            {% for error in form.password2.errors %}
+              <li>{{ error }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </div>
+
+      <button class="form-btn" type="submit">Sign Up</button>
+    </form>
+
+    <div class="sign-up">
+      Already have an account? <a href="{% url 'sign-in' %}">Sign In</a>
+    </div>
+  </div>
+
+</body>
+</html>
+
