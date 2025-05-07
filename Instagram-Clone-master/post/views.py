@@ -36,6 +36,16 @@ def index(request):
         
     post_items = Post.objects.filter(id__in=group_ids).all().order_by('-posted')
 
+    for post in post_items:
+        post.is_liked_by_user = Likes.objects.filter(user=request.user, post=post).exists()
+
+    profile = Profile.objects.get(user=user)
+
+    for post in post_items:
+        post.is_liked_by_user = Likes.objects.filter(user=request.user, post=post).exists()
+        post.is_saved_by_user = profile.favourite.filter(id=post.id).exists()
+
+
     query = request.GET.get('q')
     if query:
         users = User.objects.filter(Q(username__icontains=query))
@@ -85,8 +95,14 @@ def NewPost(request):
 
 @login_required
 def PostDetail(request, post_id):
-    user = request.user
+    user = request.user    
     post = get_object_or_404(Post, id=post_id)
+
+    post.is_liked_by_user = Likes.objects.filter(user=user, post=post).exists()
+
+    profile = Profile.objects.get(user=user)
+    post.is_saved_by_user = profile.favourite.filter(id=post.id).exists()
+
     comments = Comment.objects.filter(post=post).order_by('-date')
 
     if request.method == "POST":
