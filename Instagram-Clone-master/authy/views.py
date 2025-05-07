@@ -56,28 +56,62 @@ def UserProfile(request, username):
     return render(request, 'profile.html', context)
     
 
+# def EditProfile(request):
+#     user = request.user.id
+#     profile = Profile.objects.get(user__id=user)
+
+#     if request.method == "POST":
+#         form = EditProfileForm(request.POST, request.FILES, instance=request.user.profile)
+#         if form.is_valid():
+#             profile.image = form.cleaned_data.get('image')
+#             profile.first_name = form.cleaned_data.get('first_name')
+#             profile.last_name = form.cleaned_data.get('last_name')
+#             profile.location = form.cleaned_data.get('location')
+#             profile.url = form.cleaned_data.get('url')
+#             profile.bio = form.cleaned_data.get('bio')
+#             profile.save()
+#             return redirect('profile', profile.user.username)
+#     else:
+#         form = EditProfileForm(instance=request.user.profile)
+
+#     context = {
+#         'form':form,
+#     }
+#     return render(request, 'editprofile.html', context)
+
+from django.shortcuts import render, redirect
+from .forms import EditProfileForm
+from .models import Profile
+
 def EditProfile(request):
-    user = request.user.id
-    profile = Profile.objects.get(user__id=user)
+    user = request.user  # Get the current logged-in user
+    profile = Profile.objects.get(user=user)  # Get the profile associated with the user
 
     if request.method == "POST":
-        form = EditProfileForm(request.POST, request.FILES, instance=request.user.profile)
+        form = EditProfileForm(request.POST, request.FILES, instance=profile)  # Bind the form to the profile instance
         if form.is_valid():
+            # Update user fields (first_name, last_name)
+            user.first_name = form.cleaned_data.get('first_name')
+            user.last_name = form.cleaned_data.get('last_name')
+            user.save()  # Save the user model instance
+
+            # Update profile fields
             profile.image = form.cleaned_data.get('image')
-            profile.first_name = form.cleaned_data.get('first_name')
-            profile.last_name = form.cleaned_data.get('last_name')
             profile.location = form.cleaned_data.get('location')
             profile.url = form.cleaned_data.get('url')
             profile.bio = form.cleaned_data.get('bio')
-            profile.save()
-            return redirect('profile', profile.user.username)
+            profile.save()  # Save the profile model instance
+
+            return redirect('profile', profile.user.username)  # Redirect to the updated profile page
+
     else:
-        form = EditProfileForm(instance=request.user.profile)
+        form = EditProfileForm(instance=profile)  # Prepopulate the form with the current profile data
 
     context = {
-        'form':form,
+        'form': form,
     }
     return render(request, 'editprofile.html', context)
+
 
 def follow(request, username, option):
     user = request.user
